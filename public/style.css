@@ -2,7 +2,8 @@ html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Gowun Batang', serif;
+  font-family: 'Black Han Sans', sans-serif;
+
   background-image: url("images/2.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,12 +13,17 @@ html, body {
 .container {
   width: 100%;
   height: 100vh;
+  /* border:  2px dashed black; */
+  /* margin-top: 150px; */
+  padding-top: 150px;
+  padding-left: 120px;
 }
 
-/* #smallContainer {
-  width: 50%;
-  height: 50%;
-} */
+div {
+  display: flex;
+  margin: 0 20px;
+  /* text-align: center; */
+}
 
 .container:before {
   content: '';
@@ -64,3 +70,4 @@ form.box input[type=submit] {
 form.box input[type=text]::placeholder {
   color: rgb(87, 87, 87);
 }
+
