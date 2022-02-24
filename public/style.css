@@ -1,17 +1,13 @@
 html, body {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   font-family: 'Black Han Sans', sans-serif;
-}
 
-.back {
-  width: 100%;
-  height: 990px;
-  background-image: url("images/2.jpeg");
+  background-image: url("images/bg5.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  overflow: hidden;
 }
 
 .container {
@@ -21,23 +17,34 @@ html, body {
   width: 100vh;
   height: 40vh;
   /* border:  2px dashed black; */
-  margin-top: 190px;
+  /* margin-top: 150px; */
+  padding-top: 150px;
+  padding-left: 120px;
 }
+
+div {
+  display: flex;
+  margin: 0 20px;
+  /* text-align: center; */
+}
+
 
 /* .container:before {
   position: relative;
+
   content: '';
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(202, 197, 197, 0.534); 
 } */
 
-/* form tag */
+
 form.box {
+  width: 500px;
   position: absolute;
   top: 40%;
   left: 50%;
-  width: 500px;
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
   text-align: center;
@@ -52,7 +59,7 @@ form.box input {
 }
 
 form.box input[type=text] {
-  background-color: rgba(255, 255, 255, 0.26);
+  background-color: rgba(255, 255, 255, 0.308);
   width: 340px;
   padding: 10px;
   border-radius: 25px 0 0 25px;
@@ -68,6 +75,5 @@ form.box input[type=submit] {
 }
 
 form.box input[type=text]::placeholder {
-  color: rgb(87, 87, 87);
+  color: white;
 }
-

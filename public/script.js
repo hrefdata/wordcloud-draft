@@ -117,7 +117,7 @@ const createWordObject = (word, freq, rotate) => {
   wordContainer.style.fontSize = freq * 5 + "px";
 
   wordContainer.appendChild(document.createTextNode(word));
-  
+
   if (freq > 0 && freq < 2) {
     wordContainer.style.color = "white";
   } else if (freq >= 2 && freq < 5) {
@@ -148,6 +148,7 @@ const createWordObject = (word, freq, rotate) => {
     wordContainer.style.width = freq * 20 + "px";
     wordContainer.style.height = freq * 5 + "px";
     wordContainer.style.justifyContent = "right";
+
   }
 
   return wordContainer;
