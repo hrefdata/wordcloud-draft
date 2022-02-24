@@ -116,7 +116,7 @@ app.post("/news", (req, res) => {
           .sort(([, a], [, b]) => b - a)
           .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
       
-          console.log(typeof sortable, sortable);
+          // console.log(typeof sortable, sortable);
           
           // console.log(JSON.stringify(sortable));
           
