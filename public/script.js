@@ -141,23 +141,19 @@ const createWordObject = (word, freq, rotate) => {
 
   // wordContainer.style.transform = "translate(" + a + "px, " + b + "px)";
 
-  // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
-  if (freq > 0 && freq < 2) {
-    wordContainer.style.color = "white";
-  } else if (freq >= 2 && freq < 5) {
-    wordContainer.style.color = "rgb(255, 214, 214)";
+  if (freq > 0 && freq < 5) {
+    wordContainer.style.color = "rgba(255, 255, 255, 0.377)";
   } else if (freq >= 5 && freq < 10) {
-    wordContainer.style.color = "rgb(241, 173, 173)";
+    wordContainer.style.color = "rgba(255, 255, 255, 0.473)";
   } else if (freq >= 10 && freq < 15) {
-    wordContainer.style.color = "rgb(229, 143, 143)";
+    wordContainer.style.color = "(255, 255, 255, 0.555)";
   }else if (freq >= 15 && freq < 20) {
-    wordContainer.style.color = "rgb(228, 109, 109)";
+    wordContainer.style.color = "rgba(255, 255, 255, 0.781)";
   } else {
-    wordContainer.style.color = "rgb(219, 59, 59)";
+    wordContainer.style.color = "white";
   }
 
   return wordContainer;
 };
-
 
 
