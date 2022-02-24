@@ -1,11 +1,10 @@
-
-
 const container = document.querySelector(".container");
 const formBox = document.querySelector(".box");
 const wordArea = document.querySelector("#word");
 // const smallContainer = document.querySelector("#smallContainer");
 
 let words = [];
+console.log(words);
 
 // 시작 좌표
 // let startPoint = {
@@ -14,7 +13,8 @@ let words = [];
 // };
 // console.log(startPoint, " dasfdsanfnsaldnflansldnlasndlknfslnfdlsnl");
 
-let wordsDown = [];
+// let wordsDown = [];
+// console(wordsDown);
 
 // const options = words.map((word) => {
 //   return {
@@ -39,44 +39,46 @@ let wordsDown = [];
 
 
 //
-const intersect = (word, x, y) => {
-  cloud.appendChild(word);
+// const intersect = (word, x, y) => {
+//   cloud.appendChild(word);
   
-  word.style.left = x - word.offsetWidth / 2 + "px";
-  word.style.top = y - word.offsetHeight / 2 + "px";
+//   word.style.left = x - word.offsetWidth / 2 + "px";
+//   word.style.top = y - word.offsetHeight / 2 + "px";
 
 
-  var currentWord = word.getBoundingClientRect();
+//   var currentWord = word.getBoundingClientRect();
 
-  cloud.removeChild(word);
+//   cloud.removeChild(word);
 
-  for (var i = 0; i < wordsDown.length; i += 1) {
-    var comparisonWord = wordsDown[i];
+//   for (var i = 0; i < wordsDown.length; i += 1) {
+//     var comparisonWord = wordsDown[i];
 
-    if (
-      !(
-        currentWord.right + config.xWordPadding <
-          comparisonWord.left - config.xWordPadding ||
-        currentWord.left - config.xWordPadding >
-          comparisonWord.right + config.wXordPadding ||
-        currentWord.bottom + config.yWordPadding <
-          comparisonWord.top - config.yWordPadding ||
-        currentWord.top - config.yWordPadding >
-          comparisonWord.bottom + config.yWordPadding
-      )
-    ) {
-      return true;
-    }
-  }
+//     if (
+//       !(
+//         currentWord.right + config.xWordPadding <
+//           comparisonWord.left - config.xWordPadding ||
+//         currentWord.left - config.xWordPadding >
+//           comparisonWord.right + config.wXordPadding ||
+//         currentWord.bottom + config.yWordPadding <
+//           comparisonWord.top - config.yWordPadding ||
+//         currentWord.top - config.yWordPadding >
+//           comparisonWord.bottom + config.yWordPadding
+//       )
+//     ) {
+//       return true;
+//     }
+//   }
 
-  return false;
-};
+//   return false;
+// };
 
 const arrX = [180, 190 , 200, 300, 400, 350, 405, 234, 345, 168];
 const arrY = [180, 190 , 200, 300, 400, 350, 405, 234, 345, 168];
 /*  ========================================================== */
+
+
 const placeWords = () => {
-//   console.log(arrVal);
+// console.log(arrVal);
 // console.log(arrKey);
   for (let i = 0; i < 10; i += 1) {
     
@@ -84,21 +86,26 @@ const placeWords = () => {
     let word = createWordObject(
       arrKey[i],
       arrVal[i],
-      (~~(Math.random() * 6) - 3) * 30
+      // (~~(Math.random() * 6) - 3) * 30
       
     );
-    // console.log(word);
-    // for (let j = 0; j < 360 * 5; j++) {
-    //   angle = 1 * i;
-    //   x = (1 + angle) * Math.cos(angle);
-    //   y = (1 + angle) * Math.sin(angle);
-    //   placeWord(word, startPoint.x + x, startPoint.y + y);
-    // }
-    // console.log(typeof word, word, " eeeeeeeeeeeeeeeeeee");
+
+
+
+
+    console.log(word);
+    for (let j = 0; j < 360 * 5; j++) {
+      angle = 1 * i;
+      x = (1 + angle) * Math.cos(angle);
+      y = (1 + angle) * Math.sin(angle);
     if(word.innerText != "undefined"){
-      placeWord(word, arrX[i], arrY[i]);
-      // intersect(word, startPoint.x, startPoint.y);
-    }
+      placeWord(word, startPoint.x + x, startPoint.y + y);
+    }}
+    // console.log(typeof word, word, " eeeeeeeeeeeeeeeeeee");
+    // if(word.innerText != "undefined"){
+    //   placeWord(word, arrX[i], arrY[i]);
+    //   // intersect(word, startPoint.x, startPoint.y);
+    // }
     
   }
   //console.log(word);
@@ -186,9 +193,7 @@ formBox.addEventListener("submit", (event) => {
     const text = wordArea.value; // textArea에 입력한 값.
 
     if (text) {
-
-     
-
+    
       const xhr = new XMLHttpRequest();
 
       const url = "/news";
@@ -252,20 +257,20 @@ formBox.addEventListener("submit", (event) => {
 // div(word) 생성 메소드
  const createWordObject = (word, freq, rotate) => {
   const wordContainer = document.createElement("div");
-  //wordContainer.style.position = "relative";
+  // wordContainer.style.position = "relative";
   wordContainer.appendChild(document.createTextNode(word));
   //wordContainer.style.lineHeight = 0.8;
   wordContainer.style.fontSize = freq + "px";
   wordContainer.style.transform = "translate(100px, 100px) rotate(" + rotate + "deg)";
-  wordContainer.style.textAnchor = "middle";
-  wordContainer.style.alignContent = "middle middle";
-  wordContainer.style.listStyle = "none";
-  wordContainer.style.paddingLeft = "0";
-  wordContainer.style.display = "flex";
-  wordContainer.style.flexWrap = "wrap";
-  wordContainer.style.alignItems = "center";
-  wordContainer.style.justifyContent = "center";
-  wordContainer.style.lineHeight = "2.5rem";
+  // wordContainer.style.textAnchor = "middle";
+  // wordContainer.style.alignContent = "middle middle";
+  // wordContainer.style.listStyle = "none";
+  // wordContainer.style.paddingLeft = "0";
+  // wordContainer.style.display = "flex";
+  // wordContainer.style.flexWrap = "wrap";
+  // wordContainer.style.alignItems = "center";
+  // wordContainer.style.justifyContent = "center";
+  // wordContainer.style.lineHeight = "2.5rem";
 
   // wordContainer.style.transform =
   //   "translate(300px, 200px) rotate(" + rotate + "deg)";
@@ -273,16 +278,16 @@ formBox.addEventListener("submit", (event) => {
   // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
   if (freq > 0 && freq < 3) {
     wordContainer.style.color = "white";
-  } else if (freq >= 3 && freq < 5) {
-    wordContainer.style.color = "black";
-  } else if (freq >= 5 && freq < 8) {
-    wordContainer.style.color = "purple";
-  } else if (freq >= 8 && freq < 10) {
-    wordContainer.style.color = "red";
-  }else if (freq >= 10 && freq < 20) {
-    wordContainer.style.color = "green";
+  } else if (freq >= 1 && freq < 5) {
+    wordContainer.style.color = "rgb(255, 214, 214)";
+  } else if (freq >= 5 && freq < 10) {
+    wordContainer.style.color = "rgb(241, 173, 173)";
+  } else if (freq >= 10 && freq < 15) {
+    wordContainer.style.color = "rgb(229, 143, 143)";
+  }else if (freq >= 15 && freq < 20) {
+    wordContainer.style.color = "rgb(228, 109, 109)";
   } else {
-    wordContainer.style.color = "blue";
+    wordContainer.style.color = "rgb(219, 59, 59)";
   }
 
   return wordContainer;
@@ -293,7 +298,7 @@ const placeWord = (word, x, y) => {
  
   // if(word){
     container.appendChild(word);
-    wordsDown.push(word.getBoundingClientRect());
+    // wordsDown.push(word.getBoundingClientRect());
 
   // }
   //console.log(x, y);
