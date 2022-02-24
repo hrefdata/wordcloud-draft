@@ -9,12 +9,6 @@ const smallContainer = document.querySelector("#smallContainer");
 // console.log(textAreaArray);
 
 let words = [];
-// 변수 네이밍 컨벤션, 도메인과 관련된 용어 정의
-
-// source : 번역할 텍스트와 관련된 명칭
-// target : 번역된 결과와 관련된 명칭
-
-// const [sourceTextArea, targetTextArea] = textAreaArray;
 
 // 시작 좌표
 let startPoint = {
@@ -136,40 +130,6 @@ console.log(arrKey);
 
 
 
-// wordArea.addEventListener("input", (event) => {
-//     const text = event.target.value;
-//     console.log(text);
-
-//     if(text) {
-//         const xhr = new XMLHttpRequest();
-//         const url = "";
-
-//         xhr.onreadystatechange = () => {
-//             const reponseData = xhr.responseTest;
-//             console.log(
-//                 `responseData: ${responseData}, type: ${typeof responseData}`
-//             );
-
-//             const parsedData = JSON.parse(JSON.parse(responseData));
-//             console.log(typeof parsedData, parsedData);
-
-//             // 결과 출력
-
-//         };
-
-//         xhr.open("POST", url);
-//         xhr.setRequestHeader("Content-type", "application/json");
-
-//         const requestData = {
-//             text,
-//         }
-
-//         const jsonToString = JSON.stringify(requestData);
-//         xhr.send(jsonToString);
-//     } else {
-//         alert("No word!")
-//     }
-// });
 
 //---------------------------------------
 
@@ -219,7 +179,7 @@ formBox.addEventListener("submit", (event) => {
         if ((xhr.readyState == 4) & (xhr.status == 200)) {
           const responseData = xhr.responseText;
           console.log(
-            `responseData: ${responseData}, type: ${typeof responseData}`
+            // `responseData: ${responseData}, type: ${typeof responseData}`
           );
           const parseJsonToObject = JSON.parse(responseData);
 
@@ -230,12 +190,18 @@ formBox.addEventListener("submit", (event) => {
           for (i of Object.keys(parseJsonToObject)) {
             arrKey[index_r] = i;
             index_r++;
+            if(index_r == 20){
+              break;
+            }
           }
           
           var index_v = 0;
           for (i of Object.values(parseJsonToObject)) {
             arrVal[index_v] = i;
             index_v++;
+            if(index_v == 20){
+              break;
+            }
           }
 
           deleteForm();
