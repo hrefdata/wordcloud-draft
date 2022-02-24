@@ -1,131 +1,125 @@
-//const { parse } = require("dotenv");
-
 const container = document.querySelector(".container");
 const formBox = document.querySelector(".box");
 const wordArea = document.querySelector("#word");
-const smallContainer = document.querySelector("#smallContainer");
-
-// const textAreaArray = document.querySelectorAll('textarea');
-// console.log(textAreaArray);
+// const smallContainer = document.querySelector("#smallContainer");
 
 let words = [];
+<<<<<<< HEAD
+=======
+console.log(words);
+>>>>>>> 088d3a16d1cf75ed95de374bd89e6de7c9095a53
 
 // 시작 좌표
-let startPoint = {
-  x: smallContainer.offsetWidth / 2,
-  y: smallContainer.offsetHeight / 2,
-};
-console.log(startPoint);
+// let startPoint = {
+//   x: smallContainer.offsetWidth ,
+//   y: smallContainer.offsetHeight/2,
+// };
+// console.log(startPoint, " dasfdsanfnsaldnflansldnlasndlknfslnfdlsnl");
 
-let wordsDown = [];
+// let wordsDown = [];
+// console(wordsDown);
 
-const options = words.map((word) => {
-  return {
-    word: word,
-    freq: Math.floor(Math.random() * 50),
-    rotate: (~~(Math.random() * 6) - 3) * 30,
-  };
-});
+// const options = words.map((word) => {
+//   return {
+//     word: word,
+//     freq: Math.floor(Math.random() * 50),
+//     rotate: (~~(Math.random() * 6) - 3) * 30,
+//   };
+// });
 
 // freq 가 큰 것 부터 정렬
-options.sort((a, b) => -1 * (a.freq - b.freq));
+//options.sort((a, b) => -1 * (a.freq - b.freq));
 
-console.log(options);
+//console.log(options);
 //console.log(options[0].word);
 
 // form 삭제 후 div(cloud) 생성 메소드
-const deleteForm = () => {
-  formBox.remove();
-  const cloud = document.createElement("div");
 
-  placeWords();
-};
 
-// div(word) 생성 메소드
-const createWordObject = (word, freq) => {
-  const wordContainer = document.createElement("div");
-  wordContainer.style.position = "absolute";
-  wordContainer.appendChild(document.createTextNode(word));
-  wordContainer.style.lineHeight = 0.8;
-  wordContainer.style.fontSize = freq + "px";
-  wordContainer.style.paddingTop = "10px";
-  wordContainer.style.textAnchor = "middle";
-  // wordContainer.style.transform =
-  //   "translate(300px, 200px) rotate(" + rotate + "deg)";
 
-  // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
-  if (freq > 0 && freq < 3) {
-    wordContainer.style.color = "red";
-  } else if (freq >= 3 && freq < 20) {
-    wordContainer.style.color = "blue";
-  } 
-
-  return wordContainer;
-};
 
 //
-const placeWord = (word, x, y) => {
-  smallContainer.appendChild(word);
-  wordsDown.push(word.getBoundingClientRect());
-  console.log(x, y);
-};
+
 
 //
-const intersect = (word, x, y) => {
-  cloud.appendChild(word);
+// const intersect = (word, x, y) => {
+//   cloud.appendChild(word);
+  
+//   word.style.left = x - word.offsetWidth / 2 + "px";
+//   word.style.top = y - word.offsetHeight / 2 + "px";
 
-  word.style.left = x - word.offsetWidth / 2 + "px";
-  word.style.top = y - word.offsetHeight / 2 + "px";
 
-  var currentWord = word.getBoundingClientRect();
+//   var currentWord = word.getBoundingClientRect();
 
-  cloud.removeChild(word);
+//   cloud.removeChild(word);
 
-  for (var i = 0; i < wordsDown.length; i += 1) {
-    var comparisonWord = wordsDown[i];
+//   for (var i = 0; i < wordsDown.length; i += 1) {
+//     var comparisonWord = wordsDown[i];
 
-    if (
-      !(
-        currentWord.right + config.xWordPadding <
-          comparisonWord.left - config.xWordPadding ||
-        currentWord.left - config.xWordPadding >
-          comparisonWord.right + config.wXordPadding ||
-        currentWord.bottom + config.yWordPadding <
-          comparisonWord.top - config.yWordPadding ||
-        currentWord.top - config.yWordPadding >
-          comparisonWord.bottom + config.yWordPadding
-      )
-    ) {
-      return true;
-    }
-  }
+//     if (
+//       !(
+//         currentWord.right + config.xWordPadding <
+//           comparisonWord.left - config.xWordPadding ||
+//         currentWord.left - config.xWordPadding >
+//           comparisonWord.right + config.wXordPadding ||
+//         currentWord.bottom + config.yWordPadding <
+//           comparisonWord.top - config.yWordPadding ||
+//         currentWord.top - config.yWordPadding >
+//           comparisonWord.bottom + config.yWordPadding
+//       )
+//     ) {
+//       return true;
+//     }
+//   }
 
-  return false;
-};
+//   return false;
+// };
 
+const arrX = [180, 190 , 200, 300, 400, 350, 405, 234, 345, 168];
+const arrY = [180, 190 , 200, 300, 400, 350, 405, 234, 345, 168];
 /*  ========================================================== */
 
+
 const placeWords = () => {
-  console.log(arrVal);
-console.log(arrKey);
-  for (let i = 0; i < 20; i += 1) {
+// console.log(arrVal);
+// console.log(arrKey);
+  for (let i = 0; i < 10; i += 1) {
+    
     
     let word = createWordObject(
-      arrKey,
-     arrVal,
+      arrKey[i],
+      arrVal[i],
+      // (~~(Math.random() * 6) - 3) * 30
       
     );
-    // console.log(word);
-    // for (let j = 0; j < 360 * 5; j++) {
-    //   angle = 1 * i;
-    //   x = (1 + angle) * Math.cos(angle);
-    //   y = (1 + angle) * Math.sin(angle);
-    //   placeWord(word, startPoint.x + x, startPoint.y + y);
+
+
+
+
+    console.log(word);
+    for (let j = 0; j < 360 * 5; j++) {
+      angle = 1 * i;
+      x = (1 + angle) * Math.cos(angle);
+      y = (1 + angle) * Math.sin(angle);
+    if(word.innerText != "undefined"){
+      placeWord(word, startPoint.x + x, startPoint.y + y);
+    }}
+    // console.log(typeof word, word, " eeeeeeeeeeeeeeeeeee");
+    // if(word.innerText != "undefined"){
+    //   placeWord(word, arrX[i], arrY[i]);
+    //   // intersect(word, startPoint.x, startPoint.y);
     // }
-    placeWord(word, startPoint.x, startPoint.y);
+    
   }
   //console.log(word);
   // placeWord(word, startPoint.x + x, startPoint.y + y);
+};
+
+const deleteForm = () => {
+  formBox.remove();
+  //const cloud = document.createElement("div");
+
+  placeWords();
 };
 
 
@@ -168,9 +162,7 @@ formBox.addEventListener("submit", (event) => {
     const text = wordArea.value; // textArea에 입력한 값.
 
     if (text) {
-
-     
-
+    
       const xhr = new XMLHttpRequest();
 
       const url = "/news";
@@ -235,3 +227,54 @@ formBox.addEventListener("submit", (event) => {
     }
   }, 500);
 });
+
+
+// div(word) 생성 메소드
+ const createWordObject = (word, freq, rotate) => {
+  const wordContainer = document.createElement("div");
+  // wordContainer.style.position = "relative";
+  wordContainer.appendChild(document.createTextNode(word));
+  //wordContainer.style.lineHeight = 0.8;
+  wordContainer.style.fontSize = freq + "px";
+  wordContainer.style.transform = "translate(100px, 100px) rotate(" + rotate + "deg)";
+  // wordContainer.style.textAnchor = "middle";
+  // wordContainer.style.alignContent = "middle middle";
+  // wordContainer.style.listStyle = "none";
+  // wordContainer.style.paddingLeft = "0";
+  // wordContainer.style.display = "flex";
+  // wordContainer.style.flexWrap = "wrap";
+  // wordContainer.style.alignItems = "center";
+  // wordContainer.style.justifyContent = "center";
+  // wordContainer.style.lineHeight = "2.5rem";
+
+  // wordContainer.style.transform =
+  //   "translate(300px, 200px) rotate(" + rotate + "deg)";
+
+  // freq 따라서 랜덤 색? 0~10 10~20 20~30 30~40 40~50
+  if (freq > 0 && freq < 3) {
+    wordContainer.style.color = "white";
+  } else if (freq >= 1 && freq < 5) {
+    wordContainer.style.color = "rgb(255, 214, 214)";
+  } else if (freq >= 5 && freq < 10) {
+    wordContainer.style.color = "rgb(241, 173, 173)";
+  } else if (freq >= 10 && freq < 15) {
+    wordContainer.style.color = "rgb(229, 143, 143)";
+  }else if (freq >= 15 && freq < 20) {
+    wordContainer.style.color = "rgb(228, 109, 109)";
+  } else {
+    wordContainer.style.color = "rgb(219, 59, 59)";
+  }
+
+  return wordContainer;
+};
+
+const placeWord = (word, x, y) => {
+  // console.log(typeof word, word, "dddddddddddddddddddddddddddddd");
+ 
+  // if(word){
+    container.appendChild(word);
+    // wordsDown.push(word.getBoundingClientRect());
+
+  // }
+  //console.log(x, y);
+};
