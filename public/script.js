@@ -3,6 +3,7 @@ const formBox = document.querySelector(".box");
 const wordArea = document.querySelector("#word");
 
 //---------------------------------------
+
 const placeWords = () => {
   for (let i = 0; i < 10; i += 1) {
     let word = createWordObject(
